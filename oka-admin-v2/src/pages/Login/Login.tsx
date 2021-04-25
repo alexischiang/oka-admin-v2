@@ -1,84 +1,108 @@
-const Login = () => {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div className="max-w-md w-full space-y-8">
-      <div>
-        <img
-          className="mx-auto h-12 w-auto"
-          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-          alt="Workflow"
-        />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">OKA后台管理系统</h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          VERSION 2.0
-        </p>
-      </div>
-      <form className="mt-8 space-y-6" action="#" method="POST">
-        <input type="hidden" name="remember" defaultValue="true" />
-        <div className="rounded-md shadow-sm -space-y-px">
-          <div>
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="email-address"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="sr-only">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
-            />
-          </div>
-        </div>
+import { useState } from 'react'
+import { useHistory } from 'react-router'
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input
-              id="remember_me"
-              name="remember_me"
-              type="checkbox"
-              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-            />
-            <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-              Remember me
-            </label>
-          </div>
+import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 
-          <div className="text-sm">
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Forgot your password?
-            </a>
-          </div>
-        </div>
+import loginBg from '../../assets/login_bg.jpg'
 
-        <div>
-          <button
-            type="submit"
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-              
-            </span>
-            Sign in
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+const useStyles = makeStyles((theme) => ({
+	container:{
+		position:'relative',
+		top:'45%',
+		transform:'translateY(-50%)'
+	},
+	background: {
+		width:'100%',
+		height:'100vh',
+		backgroundImage: `url(${loginBg})`,
+		backgroundRepeat: 'no-repeat',
+		backgroundSize: 'cover',
+		backgroundPosition: 'center',
+	},
+	paper: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		backgroundColor:'white',
+		padding:theme.spacing(3),
+		borderRadius:'5px',
+		boxShadow:'0 0.125rem 0.75rem rgb(18 20 22 / 25%)',
+	},
+	avatar: {
+		margin: theme.spacing(1),
+		backgroundColor: theme.palette.secondary.main,
+	},
+	form: {
+		width: '100%', // Fix IE 11 issue.
+		marginTop: theme.spacing(1),
+	},
+	submit: {
+		margin: theme.spacing(3, 0, 2),
+	},
+	title: {
+		fontWeight: 700,
+		letterSpacing: '-1px'
+	}
+}));
+
+export const Login = (): JSX.Element => {
+	const history = useHistory()
+
+	const [account, setAccount] = useState('')
+	const [pwd, setPwd] = useState('')
+
+	const classes = useStyles();
+
+	return <div className={classes.background}>
+		<Container component="main" maxWidth="xs" className={classes.container}>
+			<CssBaseline />
+			<div className={classes.paper}>
+				<Typography component="h1" variant="h4" className={classes.title}>
+					𝙊𝙆𝘼 𝙉𝙚𝙩𝙬𝙤𝙧𝙠
+			</Typography>
+				<Typography component="h1" variant="subtitle1">
+					version 2.0
+			</Typography>
+				<form className={classes.form} noValidate>
+					<TextField
+						variant="outlined"
+						margin="normal"
+						required
+						fullWidth
+						size='small'
+						label="Account"
+						autoFocus
+						value={account}
+						onChange={(e) => setAccount(e.target.value)}
+					/>
+					<TextField
+						variant="outlined"
+						margin="normal"
+						size='small'
+						required
+						fullWidth
+						label="Password"
+						type="password"
+						value={pwd}
+						onChange={(e) => setPwd(e.target.value)}
+					/>
+					<Button
+						type="submit"
+						fullWidth
+						variant="contained"
+						color="primary"
+						className={classes.submit}
+						onClick={()=> history.push('/main')}
+					>
+						Login
+					</Button>
+				</form>
+			</div>
+		</Container>
+	</div>
 }
-
-export default Login
