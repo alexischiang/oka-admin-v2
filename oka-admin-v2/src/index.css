@@ -8,6 +8,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+    font-family: cocogoose;
+
+    src: url(/src/assets/cocogoose.ttf);
+}
+
+html > body {
+    font-family: cocogoose;
+}
+
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

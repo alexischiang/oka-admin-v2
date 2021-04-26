@@ -1,0 +1,23 @@
+$dark-background: #1d1b26;
+$dark-box-background: #21242f;
+$dark-color-lv1: #fff;
+$dark-color-lv2: #818396;
+$dark-color-lv3: #5e6175;
+$dark-color-active: $dark-color-lv1;
+$dark-color-inactive: $dark-color-lv2;
+$dark-button-purple: #6053c6;
+$dark-button-green: #1fa772;
+$dark-button-red: #e75455;
+
+@mixin text-lv1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: $dark-color-lv1;
+}
+
+@mixin text-lv2 {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: .5px;
+    color: $dark-color-lv2;
+}
