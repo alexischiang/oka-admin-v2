@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import Grid from '@material-ui/core/Grid'
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded'
@@ -8,7 +8,7 @@ import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
 
 import { SideBar } from './components'
 import styles from './Main.module.scss'
-import { Dashboard } from './pages'
+import { Dashboard, Servers } from './pages'
 
 export const Main = (): JSX.Element => {
     const navList = [
@@ -37,7 +37,8 @@ export const Main = (): JSX.Element => {
                 <div className={styles.routeArea}>
                     <Switch>
                         <Route path='/main/dashboard' component={Dashboard} />
-
+                        <Route path='/main/servers' component={Servers} />
+                        <Redirect from='/main' to='/main/dashboard' exact />
                     </Switch>
                 </div>
             </Grid>

@@ -1,5 +1,6 @@
 $dark-background: #1d1b26;
-$dark-box-background: #21242f;
+$dark-box-background: #252836;
+$dark-inner-box-background: #373a4b;
 $dark-color-lv1: #fff;
 $dark-color-lv2: #818396;
 $dark-color-lv3: #5e6175;
@@ -8,16 +9,16 @@ $dark-color-inactive: $dark-color-lv2;
 $dark-button-purple: #6053c6;
 $dark-button-green: #1fa772;
 $dark-button-red: #e75455;
+$dark-button-blue: #0596f6;
 
 @mixin text-lv1 {
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 700;
     color: $dark-color-lv1;
 }
 
 @mixin text-lv2 {
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 15px;
     letter-spacing: .5px;
     color: $dark-color-lv2;
 }

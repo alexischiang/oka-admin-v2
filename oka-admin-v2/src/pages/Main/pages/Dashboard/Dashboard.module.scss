@@ -1,0 +1,9 @@
+@import '/src/variables.scss';
+
+.dashboard {
+    width: 50%;
+    height: 500px;
+    padding: 20px 30px;
+    border-radius: 40px;
+    background-color: $dark-box-background;
+}

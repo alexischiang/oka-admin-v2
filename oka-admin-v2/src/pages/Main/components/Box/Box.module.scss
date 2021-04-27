@@ -1,0 +1,20 @@
+@import '/src/variables.scss';
+
+.root {
+    min-height: 30vh;
+    padding: 25px 30px;
+    border-radius: 30px;
+    background-color: $dark-box-background;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        color: $dark-color-lv1;
+    }
+
+    .children {
+        width: 100%;
+    }
+}

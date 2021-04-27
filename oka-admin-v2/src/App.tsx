@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 import { Login, Main } from './pages'
 
@@ -7,6 +8,7 @@ const App = (): JSX.Element => {
         <Switch>
             <Route path='/login' component={Login} />
             <Route path='/main' component={Main} />
+            <Redirect from='/' to='/login' />
         </Switch>
     </Router>
 }
